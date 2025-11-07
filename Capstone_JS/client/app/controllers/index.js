@@ -53,6 +53,7 @@ const renderProductList = (products) => {
 const renderCart = () => {
   let content = "";
   let total = 0;
+  let totalQuantity = 0;
 
   if (cart.length === 0) {
     content = '<p class="text-center text-muted">Giỏ hàng đang trống.</p>';
@@ -62,6 +63,7 @@ const renderCart = () => {
     cart.forEach((item) => {
       let itemTotal = item.price * item.quantity;
       total += itemTotal;
+      totalQuantity += item.quantity;
 
       content += `
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -105,7 +107,7 @@ const renderCart = () => {
   document.getElementById("cartItemsList").innerHTML = content;
   document.getElementById("cartTotal").innerHTML =
     total.toLocaleString() + " đ";
-  document.getElementById("cartCount").innerHTML = cart.length;
+  document.getElementById("cartCount").innerHTML = totalQuantity;
 };
 
 window.addToCart = (id) => {
