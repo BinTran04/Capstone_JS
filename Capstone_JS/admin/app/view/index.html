@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Phone</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="bg-info text-white p-4 rounded">
+      <h3 class="text-center my-2 ">Quản lý Sản phẩm</h3>
+    </div>
+    <div class="container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            href="#DanhSachSP"
+            role="tab"
+            data-bs-toggle="tab"
+            >Danh sách sản phẩm</a
+          >
+        </li>
+      </ul>
+
+      <br />
+
+      <div class="tab-content">
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-8">
+              <button
+                id="btnThemSP"
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#productModal"
+              >
+                <i class="fa fa-plus mr-1"></i>
+                Thêm Mới
+              </button>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group"> <input
+                id="searchInput" type="text"
+                class="form-control"
+                placeholder="Nhập tên sản phẩm..."
+                />
+                <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="clear-fix"></div>
+          <div class="tblSanPham" id="tblSanPham">
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">STT</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Screen</th>
+              <th scope="col">BackCamera</th>
+              <th scope="col">FrontCamera</th>
+              <th scope="col">Image</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tblDanhSachSP"></tbody>
+        </table>
+      </div>
+
+      <div class="modal" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg ">
+          <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Thêm sản phẩm mới</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+
+  <div class="modal-body p-4">
+    
+    <div class="row">
+
+      <div class="col-md-6 mb-3 mb-md-0">
+        <div class="card bg-light border-0">
+          <div class="card-body">
+            <div class="form-group mb-3">
+              <label>Name</label>
+              <input id="TenSP" class="form-control" placeholder="Nhập vào tên sản phẩm" />
+            </div>
+            <div class="form-group mb-3">
+              <label>Price</label>
+              <input id="GiaSP" class="form-control" placeholder="Nhập vào giá" />
+            </div>
+            <div class="form-group mb-3">
+              <label>Screen</label>
+              <input id="ManHinh" class="form-control" placeholder="Nhập vào thông số màn hình" />
+            </div>
+            <div class="form-group mb-3">
+              <label>BackCamera</label>
+              <input id="CameraSau" class="form-control" placeholder="Nhập vào thông số camera sau" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card bg-light border-0">
+          <div class="card-body">
+            <div class="form-group mb-3">
+              <label>frontCamera</label>
+              <input id="TruocCamera" class="form-control" placeholder="Nhập vào thông số camera trước" />
+            </div>
+            <div class="form-group mb-3">
+              <label>Image</label>
+              <input id="HinhSP" class="form-control" placeholder="Nhập vào link hình ảnh" />
+            </div>
+            <div class="form-group mb-3">
+              <label>Description</label>
+              <textarea class="form-control" name="" id="Mota" rows="3"></textarea>
+            </div>
+            <div class="form-group mb-3">
+              <label>Type</label>
+              <select class="form-select" id="Type">
+                <option selected>Chọn loại sản phẩm</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="modal-footer"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+      integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./../controllers/index.js"></script>
+  </body>
+</html>

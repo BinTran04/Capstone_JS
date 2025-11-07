@@ -1,0 +1,8 @@
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+.bg-aqua {
+  background-color: #e0f7fa !important;
+}
